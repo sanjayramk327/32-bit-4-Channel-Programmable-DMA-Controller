@@ -1,0 +1,2 @@
+# 32-bit-4-Channel-Programmable-DMA-Controller
+Designed and implemented a synthesizable 4-channel DMA controller with a 32-bit datapath, supporting programmable transfer lengths and byte, half-word, and word transfers. Developed the RTL with configurable source/destination addressing, fixed and rotating priority arbitration, channel masking, followed by functional RTL simulation &amp; verification.
