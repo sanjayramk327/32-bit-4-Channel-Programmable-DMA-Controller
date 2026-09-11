@@ -1,0 +1,72 @@
+[*]
+[*] GTKWave Analyzer v3.3.48 (w)1999-2013 BSI
+[*] Wed Sep 09 17:22:12 2026
+[*]
+[dumpfile] "D:\PROJECTS\DMA_controller\build\dma_sim.vcd"
+[dumpfile_mtime] "Tue Sep 08 12:50:22 2026"
+[dumpfile_size] 69655
+[savefile] "D:\PROJECTS\DMA_controller\build\dma_waves.png"
+[timestart] 0
+[size] 1536 841
+[pos] -9 -9
+*-20.183107 2959440 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_dma_top.
+[treeopen] tb_dma_top.u_dut.
+[treeopen] tb_dma_top.u_dut.u_dma_controller.
+[treeopen] tb_dma_top.u_dut.u_dma_controller.u_channel_0.
+[sst_width] 211
+[signals_width] 391
+[sst_expanded] 1
+[sst_vpaned_height] 239
+@28
+tb_dma_top.clk
+tb_dma_top.rst_n
+@200
+-
+-=== CPU REGISTER INTERFACE ===
+@28
+tb_dma_top.reg_write
+tb_dma_top.reg_read
+@22
+tb_dma_top.reg_addr[7:0]
+tb_dma_top.reg_wdata[31:0]
+tb_dma_top.reg_rdata[31:0]
+@200
+-
+-=== FSM STATE & STATUS ===
+@24
+tb_dma_top.u_dut.u_dma_controller.u_channel_0.u_dma_fsm.current_state[3:0]
+@28
+tb_dma_top.u_dut.u_dma_controller.u_channel_0.u_dma_fsm.fsm_busy
+tb_dma_top.u_dut.u_dma_controller.u_channel_0.u_dma_fsm.fsm_done
+tb_dma_top.irq
+@200
+-
+-=== PERIPHERAL STREAM INTERFACE ===
+@28
+tb_dma_top.periph_rx_valid
+tb_dma_top.periph_rx_ready
+@22
+tb_dma_top.periph_rx_data[31:0]
+@28
+tb_dma_top.periph_tx_valid
+tb_dma_top.periph_tx_ready
+@22
+tb_dma_top.periph_tx_data[31:0]
+@200
+-
+-=== MEMORY MASTER INTERFACE ===
+@28
+tb_dma_top.mem_req
+tb_dma_top.mem_we
+@22
+tb_dma_top.mem_addr[31:0]
+tb_dma_top.mem_wdata[31:0]
+@28
+tb_dma_top.mem_be[3:0]
+@22
+tb_dma_top.mem_rdata[31:0]
+@28
+tb_dma_top.mem_ready
+[pattern_trace] 1
+[pattern_trace] 0

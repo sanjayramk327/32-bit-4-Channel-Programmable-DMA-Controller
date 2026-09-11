@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630.631 1495.75" width="630.631" height="1495.75" style="--bg:#1F1F1F;--fg:#CCCCCC;--line:#CCCCCC;--accent:#0078D4;--muted:#CCCCCCCC;--surface:#181818;--border:#CCCCCC;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="P2M" data-label="Peripheral to Memory (P2M)">
+  <rect x="90.5" y="199.2" width="362.756" height="403.29999999999995" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="90.5" y="199.2" width="362.756" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="102.5" y="213.2" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Peripheral to Memory (P2M)</text>
+</g>
+<g class="subgraph" data-id="M2P" data-label="Memory to Peripheral (M2P)">
+  <rect x="264.25925" y="706.8" width="293.467" height="556.5" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="264.25925" y="706.8" width="293.467" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="276.25925" y="720.8" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Memory to Peripheral (M2P)</text>
+</g>
+<polyline class="edge" data-from="_start" data-to="IDLE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="478.87766666666664,1361.6 478.87766666666664,1373.6 405.4311666666666,1373.6 405.4311666666666,1385.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IDLE" data-to="LOAD" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="start &amp;&amp; enable" points="369.63616666666667,1385.6 369.63616666666667,1385.8999999999999 79.5,1385.8999999999999 79.5,112.9 178.75150000000002,112.9 178.75150000000002,76.9" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="IDLE" data-to="IDLE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="abort / no start" points="351.73866666666663,1397.8999999999999 341.73866666666663,1397.8999999999999 341.73866666666663,1410.1999999999998 351.73866666666663,1410.1999999999998" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="LOAD" data-to="P2M_WAIT_PERIPH" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="direction == 0 (P2M)" points="198.131,76.9 198.131,243.2" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="LOAD" data-to="M2P_MEM_READ" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="direction == 1 (M2P)" points="217.5105,76.9 217.5105,112.9 530.756,112.9 530.756,688.8 448.62775,688.8 448.6277499999999,750.8" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P2M_UPDATE" data-to="DONE_STATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="count == 0" points="198.13100000000003,586.5 198.131,688.8 280.25925,688.8 280.25924999999995,1174.3999999999999 365.96899999999994,1174.3999999999999 365.96899999999994,1210.3999999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="DONE_STATE" data-to="IDLE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="1 cycle pulse / clear" points="387.5336666666667,1247.3 387.53366666666665,1385.6" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P2M_WAIT_PERIPH" data-to="P2M_MEM_WRITE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="periph_rx_valid &amp;&amp; periph_rx_ready" points="225.37666666666667,280.1 225.37666666666667,292.1 263.762,292.1 263.762,396.4" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P2M_MEM_WRITE" data-to="P2M_UPDATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="mem_req &amp;&amp; mem_ready" points="263.762,433.29999999999995 263.762,513.5999999999999 219.8191666666667,513.5999999999999 219.8191666666667,549.5999999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="P2M_UPDATE" data-to="P2M_WAIT_PERIPH" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="count &gt; 0" points="176.44283333333334,549.5999999999999 176.44283333333334,513.5999999999999 132.5,513.5999999999999 132.5,292.1 170.88533333333334,292.1 170.88533333333334,280.1" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M2P_MEM_READ" data-to="M2P_WAIT_PERIPH" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="mem_req &amp;&amp; mem_ready" points="423.48158333333333,787.6999999999999 423.48158333333333,799.6999999999999 380.75925,799.6999999999999 380.75925,904" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M2P_WAIT_PERIPH" data-to="M2P_UPDATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="periph_tx_valid &amp;&amp; periph_tx_ready" points="380.75925,940.9 380.75925,1021.1999999999999 426.9395833333333,1021.1999999999999 426.9395833333333,1057.1999999999998" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M2P_UPDATE" data-to="M2P_MEM_READ" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="count &gt; 0" points="470.3159166666667,1057.1999999999998 470.3159166666667,1021.1999999999999 516.4962499999999,1021.1999999999999 516.4962499999999,799.6999999999999 473.77391666666665,799.6999999999999 473.77391666666665,787.6999999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="M2P_UPDATE" data-to="DONE_STATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="count == 0" points="448.62775,1094.1 448.62775,1174.3999999999999 409.09833333333336,1174.3999999999999 409.09833333333336,1210.3999999999999" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="IDLE" data-to="LOAD" data-label="start &amp;&amp; enable">
+  <rect x="36" y="1348.6" width="86.554" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="79.277" y="1363.75" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">start &amp;&amp; enable</text>
+</g>
+<g class="edge-label" data-from="IDLE" data-to="IDLE" data-label="abort / no start">
+  <rect x="259.56066666666663" y="1420.6" width="84.17800000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="301.64966666666663" y="1435.75" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">abort / no start</text>
+</g>
+<g class="edge-label" data-from="LOAD" data-to="P2M_WAIT_PERIPH" data-label="direction == 0 (P2M)">
+  <rect x="142.63100000000003" y="119.9" width="110.31400000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="197.78800000000004" y="135.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">direction == 0 (P2M)</text>
+</g>
+<g class="edge-label" data-from="LOAD" data-to="M2P_MEM_READ" data-label="direction == 1 (M2P)">
+  <rect x="477.256" y="627.5" width="106.75000000000003" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="530.631" y="642.65" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">direction == 1 (M2P)</text>
+</g>
+<g class="edge-label" data-from="P2M_UPDATE" data-to="DONE_STATE" data-label="count == 0">
+  <rect x="165.13100000000003" y="651.5" width="65.17" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="197.71600000000004" y="666.65" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">count == 0</text>
+</g>
+<g class="edge-label" data-from="DONE_STATE" data-to="IDLE" data-label="1 cycle pulse / clear">
+  <rect x="333.5336666666667" y="1312.3" width="107.34400000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="387.20566666666673" y="1327.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">1 cycle pulse / clear</text>
+</g>
+<g class="edge-label" data-from="P2M_WAIT_PERIPH" data-to="P2M_MEM_WRITE" data-label="periph_rx_valid &amp;&amp; periph_rx_ready">
+  <rect x="167.762" y="323.1" width="191.09800000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="263.31100000000004" y="338.25" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">periph_rx_valid &amp;&amp; periph_rx_ready</text>
+</g>
+<g class="edge-label" data-from="P2M_MEM_WRITE" data-to="P2M_UPDATE" data-label="mem_req &amp;&amp; mem_ready">
+  <rect x="198.262" y="476.3" width="130.51000000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="263.517" y="491.45" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">mem_req &amp;&amp; mem_ready</text>
+</g>
+<g class="edge-label" data-from="P2M_UPDATE" data-to="P2M_WAIT_PERIPH" data-label="count &gt; 0">
+  <rect x="102.5" y="399.70000000000005" width="59.230000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="132.115" y="414.85" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">count &gt; 0</text>
+</g>
+<g class="edge-label" data-from="M2P_MEM_READ" data-to="M2P_WAIT_PERIPH" data-label="mem_req &amp;&amp; mem_ready">
+  <rect x="315.25925" y="830.6999999999999" width="130.51000000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="380.51425" y="845.8499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">mem_req &amp;&amp; mem_ready</text>
+</g>
+<g class="edge-label" data-from="M2P_WAIT_PERIPH" data-to="M2P_UPDATE" data-label="periph_tx_valid &amp;&amp; periph_tx_ready">
+  <rect x="287.25925" y="983.9" width="186.346" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="380.43225" y="999.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">periph_tx_valid &amp;&amp; periph_tx_ready</text>
+</g>
+<g class="edge-label" data-from="M2P_UPDATE" data-to="M2P_MEM_READ" data-label="count &gt; 0">
+  <rect x="486.4962499999999" y="907.3" width="59.230000000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="516.1112499999999" y="922.4499999999999" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">count &gt; 0</text>
+</g>
+<g class="edge-label" data-from="M2P_UPDATE" data-to="DONE_STATE" data-label="count == 0">
+  <rect x="415.62775000000005" y="1137.1" width="65.17" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="448.21275" y="1152.25" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">count == 0</text>
+</g>
+<g class="node" data-id="_start" data-label="" data-shape="state-start">
+  <circle cx="478.87766666666664" cy="1347.6" r="12" fill="var(--_text)" stroke="none" />
+</g>
+<g class="node" data-id="IDLE" data-label="IDLE" data-shape="rounded">
+  <rect x="351.73866666666663" y="1385.6" width="71.59" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="387.53366666666665" y="1404.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">IDLE</text>
+</g>
+<g class="node" data-id="LOAD" data-label="LOAD" data-shape="rounded">
+  <rect x="159.372" y="40" width="77.518" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="198.13100000000003" y="58.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">LOAD</text>
+</g>
+<g class="node" data-id="P2M_WAIT_PERIPH" data-label="P2M_WAIT_PERIPH" data-shape="rounded">
+  <rect x="116.394" y="243.2" width="163.474" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="198.131" y="261.65" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">P2M_WAIT_PERIPH</text>
+</g>
+<g class="node" data-id="P2M_MEM_WRITE" data-label="P2M_MEM_WRITE" data-shape="rounded">
+  <rect x="185.73000000000002" y="396.4" width="156.064" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="263.762" y="414.84999999999997" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">P2M_MEM_WRITE</text>
+</g>
+<g class="node" data-id="P2M_UPDATE" data-label="P2M_UPDATE" data-shape="rounded">
+  <rect x="133.06650000000002" y="549.5999999999999" width="130.129" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="198.13100000000003" y="568.05" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">P2M_UPDATE</text>
+</g>
+<g class="node" data-id="DONE_STATE" data-label="DONE_STATE" data-shape="rounded">
+  <rect x="307.868" y="243.2" width="129.38799999999998" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="372.562" y="261.65" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">DONE_STATE</text>
+</g>
+<g class="node" data-id="M2P_MEM_READ" data-label="M2P_MEM_READ" data-shape="rounded">
+  <rect x="373.18925" y="750.8" width="150.87699999999998" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="448.62775" y="769.25" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">M2P_MEM_READ</text>
+</g>
+<g class="node" data-id="M2P_WAIT_PERIPH" data-label="M2P_WAIT_PERIPH" data-shape="rounded">
+  <rect x="299.02225" y="904" width="163.474" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="380.75924999999995" y="922.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">M2P_WAIT_PERIPH</text>
+</g>
+<g class="node" data-id="M2P_UPDATE" data-label="M2P_UPDATE" data-shape="rounded">
+  <rect x="383.56325000000004" y="1057.1999999999998" width="130.129" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="448.62775000000005" y="1075.6499999999999" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">M2P_UPDATE</text>
+</g>
+<g class="node" data-id="DONE_STATE" data-label="DONE_STATE" data-shape="rounded">
+  <rect x="322.8396666666667" y="1210.3999999999999" width="129.38799999999998" height="36.900000000000006" rx="6" ry="6" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="387.5336666666667" y="1228.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">DONE_STATE</text>
+</g>
+</svg>
