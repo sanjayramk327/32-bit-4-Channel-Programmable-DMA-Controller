@@ -1,0 +1,30 @@
+# Generic-cell synthesis script for the DMA controller.
+# Run from the project root with: yosys -s synth.ys
+
+read_verilog rtl/dma_registers.v
+read_verilog rtl/dma_fsm.v
+read_verilog rtl/dma_datapath.v
+read_verilog rtl/dma_channel.v
+read_verilog rtl/dma_controller.v
+read_verilog rtl/dma_top.v
+
+hierarchy -check -top dma_top
+
+# Convert RTL processes and optimize the generic netlist.
+proc
+opt
+fsm
+opt
+memory
+opt
+techmap
+opt
+
+# Map combinational logic to generic gates; flip-flops remain generic $_DFF_* cells.
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+check
+stat
+
+write_json build/dma_top_synth.json
+write_verilog -noattr build/dma_top_synth.v
