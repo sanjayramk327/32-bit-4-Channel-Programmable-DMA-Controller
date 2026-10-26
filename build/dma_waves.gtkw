@@ -1,0 +1,61 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (W)1999-2019 BSI
+[*] Sat Sep 30 18:14:00 2026
+[*]
+[dumpfile] "build/dma_sim.vcd"
+[savefile] "build/dma_waves.gtkw"
+[timestart] 0
+[size] 1600 900
+[pos] -1 -1
+*-24.000000 500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_dma_top.
+[treeopen] tb_dma_top.u_dut.
+[treeopen] tb_dma_top.u_dut.u_dma_controller.
+@28
+tb_dma_top.clk
+tb_dma_top.rst_n
+@200
+-
+-=== CPU REGISTER INTERFACE ===
+@28
+tb_dma_top.reg_write
+tb_dma_top.reg_read
+@22
+tb_dma_top.reg_addr[7:0]
+tb_dma_top.reg_wdata[31:0]
+tb_dma_top.reg_rdata[31:0]
+@200
+-
+-=== ROUND-ROBIN ARBITER ===
+@28
+tb_dma_top.u_dut.u_dma_controller.u_arbiter.request[7:0]
+tb_dma_top.u_dut.u_dma_controller.u_arbiter.grant[7:0]
+@24
+tb_dma_top.u_dut.u_dma_controller.u_arbiter.grant_idx[2:0]
+@28
+tb_dma_top.u_dut.u_dma_controller.u_arbiter.grant_valid
+tb_dma_top.u_dut.u_dma_controller.u_arbiter.busy_beat
+tb_dma_top.u_dut.u_dma_controller.u_arbiter.ack_step
+@200
+-
+-=== SHARED MEMORY MASTER BUS ===
+@28
+tb_dma_top.mem_req
+tb_dma_top.mem_we
+@22
+tb_dma_top.mem_addr[31:0]
+tb_dma_top.mem_wdata[31:0]
+@28
+tb_dma_top.mem_be[3:0]
+@22
+tb_dma_top.mem_rdata[31:0]
+@28
+tb_dma_top.mem_ready
+@200
+-
+-=== PER-CHANNEL INTERRUPTS ===
+@28
+tb_dma_top.irq_channels[7:0]
+tb_dma_top.irq
+[pattern_trace] 1
+[pattern_trace] 0
